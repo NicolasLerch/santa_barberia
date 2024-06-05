@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('./partials/head.ejs')%>
+    <link rel="stylesheet" href="../css/appointmentsStyles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turnos</title>
+</head>
+<body>
+    <%-include('./partials/header.ejs')%>
+
+    <h1 class="appointments-title">AGENDÁ UN TURNO CON NOSOTROS</h1>
+    <p class="appointments-text">Seleccioná el servicio que deseás y podrás ver las fechas y horarios disponibles.</p>
+    <div class="services-btns-container">
+        <button class="service-btn cut-btn">Corte</button>
+        <button class="service-btn cut-beard-btn">Corte y barba</button>
+    </div>
+
+    <div class="calendly-container cut">
+        <!-- Calendly inline widget begin -->
+        <div class="calendly-inline-widget" data-url="https://calendly.com/nicolerch97/30min?background_color=f5f5f5&primary_color=1a1a1a" style="min-width:320px;height:690px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        <!-- Calendly inline widget end -->
+    </div>
+
+
+    <div class="calendly-container cut-and-beard">
+        <!-- Calendly inline widget begin -->
+        <div class="calendly-inline-widget" data-url="https://calendly.com/nicolerch97/corta-barba?primary_color=000306" style="min-width:320px;height:690px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        <!-- Calendly inline widget end -->
+    </div>
+
+    <%-include('./partials/footer.ejs')%>
+    <script src="/js/appointments.js"></script>
+</body>
+</html>

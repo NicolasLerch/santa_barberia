@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('./partials/head.ejs')%>
+    <link rel="stylesheet" href="css/indexStyles.css">
+    <title>Santa Barberia</title>
+</head>
+<body>
+    <%-include('./partials/header.ejs')%>
+
+    <div class="banner">
+        <div class="banner-content-container">
+            <div class="banner-content">
+                <p>_____________ </p>
+                <img src="images/mustache.png" alt="mustache">
+                <p>_____________</p>
+            </div>
+            <div class="banner-content-bottom">
+                <h1>SANTA BARBERIA</h1>
+                <h3>BARBER SHOP</h3>
+                <a href="/turnos" class="appointment-button">TURNOS</a>
+            </div>
+        </div>        
+    </div>
+    <div class="introduction-container">
+        <h3 class="title mobile">¿Quiénes somos?</h3>
+        <div class="img-container">
+        </div>
+        <div class="text-container">
+            <h3 class="title">¿Quiénes somos?</h3>
+            <p class="description">
+                Con más de 5 años en el rubro, somos una marca especializada en la imagen del hombre del hoy. Trabajadores, visionarios y elegantes.
+            </p>
+            <p class="description">
+                Ubicados estratégicamente en zona norte, vas a poder realizarte todo tipo de servicios de estética masculina tales como barbería, colorimetria, tratamientos faciales y más.
+            </p>
+            <p class="description">
+                Además, contamos con membresías (mensuales) y planes (semestrales y anuales) para nuestros clientes más exigentes.
+
+                Además, con nuestro club de beneficios vas a poder seguir disfrutando de descuentos únicos ¡Unite a nuestra comunidad!
+
+            </p>
+        </div>
+    </div>
+
+    <div class="services-container">
+        <h3 class="title-services">Nuestros servicios</h3>
+        <div class="services">
+            <div class="service">
+                <!-- <span class="material-symbols-outlined">health_and_beauty</span> -->
+                <img class="icon" src="images/cissor.png" alt="corte">
+                <h3>Corte</h3>
+                <p>Cortes con máquina, tijera y navaja</p>
+            </div>
+            <div class="service">
+                <!-- <span class="material-symbols-outlined">health_and_beauty</span> -->
+                <img class="icon" src="images/beard.png" alt="corte">
+                <h3>Barbería</h3>
+                <p>Corte y lavado de vello facial</p>
+            </div>
+            <div class="service">
+                <i class="icon fa-solid fa-mug-hot"></i>
+                <h3>Bebidas</h3>
+                <p>Disfruta de una bebida fría o caliente mientras te cuidas</p>
+            </div>
+        </div>
+        
+
+    </div>
+
+
+    <%-include('./partials/footer.ejs')%>
+    
+</body>
+</html>

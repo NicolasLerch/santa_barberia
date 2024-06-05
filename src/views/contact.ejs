@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('./partials/head.ejs')%>
+    <link rel="stylesheet" href="../css/contactStyles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+</head>
+<body>
+    <%-include('./partials/header.ejs')%>
+    <div class="contact-container">
+
+        <div class="form-container">
+            <h1 class="main-title">ESCRIBINOS Y TE RESPONDEREMOS A LA BREVEDAD</h1>
+            <form action="https://formsubmit.co/lerchnicolas@hotmail.com" method="POST">
+                <input class="data" name="name" type="text" placeholder="Nombre">
+                <input class="data" name="lastName" type="text" placeholder="Apellido">
+                <input class="data" name="email" type="email" placeholder="Email (opcional)">
+                <input class="data" name="phone" type="phone" placeholder="Celular">
+                <input type="hidden" name="_next" value="http://127.0.0.1:3000/">
+                <textarea name="message" placeholder="Mensaje"></textarea>
+
+                <button type="submit" class="send-button">Enviar</button>
+            </form>
+
+        </div>
+
+        <div class="contacts-container">
+            <div class="contact whatsApp">
+                <i class="fa-brands fa-whatsapp" style="color: #1fbd00;"></i>
+                <div class="text-container">
+                    <p class="contact-title">Teléfono/WhatsApp</p>
+                    <a href="wa.me/+549351555555"><p class="contact-data">+54 9 3516274540</p></a>
+                </div>
+                
+            </div>
+            <div class="contact email">
+                <i class="fa-regular fa-envelope"></i> 
+                <div class="text-container">
+                    <p class="contact-title">Email</p>                    
+                    <a href="mailto:lerchnicolas@hotail.com"><p class="contact-data">lerchnicolas@hotmail.com</p></a>
+                </div>                    
+            </div>
+        </div>
+
+    </div>
+    
+    <%-include('./partials/footer.ejs')%>    
+</body>
+</html>

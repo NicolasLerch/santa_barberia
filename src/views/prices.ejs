@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('./partials/head.ejs')%>
+    <link rel="stylesheet" href="../css/pricesStyles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precios</title>
+</head>
+<body>
+    <%-include('./partials/header.ejs')%>
+
+    <h1 class="title-prices">Precios y servicios</h1>
+
+    <div class="prices-container">
+
+        <div class="service">
+            <div class="img-container">
+                <img src="images/haircut-bg2.jpg" alt="corte">
+            </div>
+            <div class="price-container">
+                <h3 class="title-service">Corte</h3>
+                <p class="service-description">Cortes con máquina, tijera y navaja.</p>
+                <p class="service-price">$6500</p>
+            </div>
+        </div>
+
+        <div class="service">
+            <div class="img-container">
+                <img src="images/haircut-bg.jpg" alt="corte">
+            </div>
+            <div class="price-container">
+                <h3 class="title-service">Corte + barba</h3>
+                <p class="service-description">Cortes con máquina, tijera y navaja + corte y perfilado de barba.</p>
+                <p class="service-price">$7500</p>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <p class="clarification">*Todos los servicios incluyen una consumición de una bebida.</p>
+    <%-include('./partials/footer.ejs')%>
+</body>
+</html>

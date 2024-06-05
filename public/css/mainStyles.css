@@ -1,0 +1,186 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(27, 27, 27);
+}
+
+.nav-desktop a, .dropdown-container a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Arial';
+}
+
+.dropdown-container, .fa-solid.fa-bars{
+    display: none;
+}
+
+.header-logo{
+    height: 120px;
+}
+
+.nav-desktop ul{
+    display: flex;
+    list-style: none;
+}
+
+.nav-desktop ul li{
+    padding: 10px 15px;
+}
+
+
+.nav-mobile{
+    display: none;
+}
+
+a:hover{
+    color: white;
+    transition: 0.2s;
+}
+
+.nav-desktop li:hover{
+    cursor: pointer;
+}
+
+.nav-desktop li:after{
+    content: '';
+    margin: auto;
+    display: block;
+    height: 2px;
+    width: 0%;
+    background-color: transparent;
+    transition: all 0.5s ease;
+}
+
+li:hover:after{
+    width: 100%;
+    background-color: rgba(136, 65, 18, 0.815);
+}
+
+footer{    
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Arial';
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 10px 0;
+    padding-bottom: 0px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    background-image: url("../images/marble-bg.jpg");
+}
+
+
+.footer-top{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 25px;
+    padding-bottom: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.days, .hours{
+    text-align: left;
+}
+
+.days{
+    margin-top: 10px;
+    font-size: 20px;
+    color: white;
+}
+
+.hours{
+    font-size: 16px;
+}
+
+.footer-appointment{
+    text-decoration: none;
+    color: white;
+    background-color: rgba(136, 65, 18, 0.815);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    /* margin: 10px 0; */
+}
+
+.footer-img-container img{
+    height: 150px;
+}
+
+.footer-img-container{
+    margin-bottom: -5px;
+}
+
+.footer-bottom{
+    text-align: center;
+    font-size: 14px;
+    padding: 10px 0;
+    background-color: black;
+}
+
+.right-container h3{
+    text-align: left;
+}
+
+@media (max-width: 699px){
+    .nav-desktop{
+        display: none;
+    }
+
+    .fa-solid.fa-bars{
+        display: block;
+    }
+
+    header{
+        justify-content: space-around;
+    }
+
+    .nav-mobile .dropdown-container{
+        display: none;
+    }
+
+    .fa-solid.fa-bars{
+        color: rgba(255, 255, 255, 1);
+        font-size: 2.5rem;
+    }
+
+    .dropdown-container{
+        position: fixed;
+        top: 120px;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 1);
+        z-index: 10;
+        display: none;
+    }
+
+    ul.dropdown{
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    ul.dropdown li{
+        padding: 10px 0;
+    }
+
+    .right-container{
+        margin-left: 30px;
+    }
+
+    .show{
+        display: block;
+    }
+
+    .no-scroll {
+        overflow: hidden;
+    }
+}
