@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path')
 const indexRouter = require('./src/routes/index.routes');
+const PORT = require('./src/config').PORT;
 
 
 app.use(express.json());
@@ -13,7 +14,7 @@ app.set('view engine', 'ejs')
 
 app.use('/', indexRouter);
 
-const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 })
