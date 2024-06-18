@@ -1,24 +1,50 @@
-<header>    
-    <!-- <img src="/images/SantaBarberia.png" alt="Santa Barberia logo"> -->
-    <a href="/"><img class="header-logo" src="/images/SantaBarberia-white.png" alt="Santa Barberia logo"></a>
-    <nav class="nav-desktop">
-        <ul>
-           <li><a href="/">Inicio</a></li>
-           <li><a href="/precios">Precios</a></li>
-           <li><a href="/local">Local</a></li>
-           <li><a href="/contacto">Contacto</a></li>
-           <li><a href="/turnos">Turnos</a></li>
-           <li><a href="/turnos/code">Calendly</a></li>
-        </ul>
-    </nav>
-        <i class="fa-solid fa-bars"></i>
-        <div class="dropdown-container">
-            <ul class="dropdown">
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/precios">Precios</a></li>
-                <li><a href="/local">Local</a></li>
-                <li><a href="/contacto">Contacto</a></li>
-                <li><a href="/turnos">Turnos</a></li>
-             </ul>
-        </div>
+<header>
+  <!-- <img src="/images/SantaBarberia.png" alt="Santa Barberia logo"> -->
+  <a href="/"
+    ><img
+      class="header-logo"
+      src="/images/SantaBarberia-white.png"
+      alt="Santa Barberia logo"
+  /></a>
+  <nav class="nav-desktop">
+    <ul>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/precios">Precios</a></li>
+      <li><a href="/local">Local</a></li>
+      <li><a href="/contacto">Contacto</a></li>
+      <li><a href="/turnos">Turnos</a></li>
+      <%if (locals.user && locals.user.role == "admin"){%>
+        <li><a href="/turnos/proximos">Calendario</a></li>
+      <%}%> 
+      <%if (locals.user){%>
+        <li><a href="/users/logout">Salir</a></li>
+      <%}%> 
+      <%if (!locals.user || locals.user == null){%>
+        <li>
+            <a href="/users/login"><i class="fa-solid fa-user"></i></a>
+        </li>
+      <%}%>
+    </ul>
+  </nav>
+  <i class="fa-solid fa-bars"></i>
+  <div class="dropdown-container">
+    <ul class="dropdown">
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/precios">Precios</a></li>
+      <li><a href="/local">Local</a></li>
+      <li><a href="/contacto">Contacto</a></li>
+      <li><a href="/turnos">Turnos</a></li>
+      <%if (locals.user && locals.user.role == "admin"){%>
+      <li><a href="/turnos/proximos">Calendario</a></li>
+      <%}%>
+      <%if (locals.user){%>
+        <li><a href="/users/logout">Salir</a></li>
+      <%}%>
+      <%if (!locals.user || locals.user == null){%>
+        <li>
+            <a href="/users/login"><i class="fa-solid fa-user"></i></a>
+        </li>
+      <%}%>
+    </ul>
+  </div>
 </header>

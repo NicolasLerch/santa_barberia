@@ -1,22 +1,8 @@
-let accessToken = '';
-
-let url = 'https://auth.calendly.com/oauth/token';
-
-let options = {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/x-www-form-urlencoded',
-    Authorization: 'Basic undefined'
-  },
-  body: encodedParams
+module.exports = function(req, res, next) {
+  // Verificar si el usuario está autenticado y si el token de acceso está presente
+  if (!req.session.user) {
+    return res.status(401).send("No autorizado. Por favor, inicie sesión.");
+  }
+  // Si el usuario está autenticado, continuar con la siguiente función del middleware
+  next();
 };
-
-fetch(url, options)
-  .then(res => res.json())
-//   .then(json => console.log(json))
-  .catch(err => console.error('error:' + err));
-
-
-app.get('/', (req, res) => {
-    res.redirect(AUTH_URL)
-})
