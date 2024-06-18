@@ -2,10 +2,13 @@ const express = require('express');
 const app = express();
 const path = require('path')
 const indexRouter = require('./src/routes/index.routes');
+const calendlyrouter = require('./src/routes/calendly.routes');
 const PORT = require('./src/config').PORT;
 
 
+
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.set('view engine', 'ejs')
@@ -13,6 +16,7 @@ app.set('view engine', 'ejs')
     .set('views', path.join(__dirname, 'src/views'))
 
 app.use('/', indexRouter);
+app.use('/turnos', calendlyrouter);
 
 
 app.listen(PORT, () => {

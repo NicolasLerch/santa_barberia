@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('./partials/head.ejs')%>
+    <link rel="stylesheet" href="../css/calendarStyles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario</title>
+</head>
+    <%-include('./partials/header.ejs')%>
+
+    <h1 class="title-prices">Calendario</h1>
+
+    <div class="calendar-container">
+        <div class="appointments-container">
+            <h2>Proximos turnos</h2>
+            <form action="/turnos/invitados" class="search-form" method="GET" >
+                Desde: <input type="date" name="min_start_time">
+                Hasta: <input type="date" name="max_start_time">
+                <button type="submit">Buscar</button>
+            </form>
+            <%if(appointments.length < 1){%>
+                <h3>No hay turnos para las fechas seleccionadas</h3>
+            <%}%>
+            <%for (const appointment of appointments) {%>               
+
+            <div class="appointment">
+                <h3>Fecha</h3>
+                <p class="date"><%=appointment.date%></p>
+                <h3>Hora</h3>
+                <p class="time"><%=appointment.time%></p>
+                <h3>Servicio</h3>
+                <p class="time"><%=appointment.name%></p>
+                <h3>Cliente</h3>
+                <p class="service"><%=appointment.invitee%></p>
+                <h3>Email</h3>
+                <p class="client"><%=appointment.email%></p>
+                <h3>Telefono</h3>
+                <p class="phone"><%=appointment.phone%></p>
+                <a target="_blank" href="https://wa.me/<%=appointment.phone%>" class="contact-button">Whastapp</a>
+                <br>
+                <br>
+            </div>
+            <%}%>
+        </div>
+    </div>
+
+
+    <%-include('./partials/footer.ejs')%>
+<body>
+    
+</body>
+</html>
