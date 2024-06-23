@@ -1,53 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <%-include('./partials/head.ejs')%>
-    <link rel="stylesheet" href="../css/calendarStyles.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/calendarStyles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calendario</title>
-</head>
-    <%-include('./partials/header.ejs')%>
+  </head>
+  <%-include('./partials/header.ejs')%>
 
-    <h1 class="title-prices">Calendario</h1>
+  <body>
+  <h1 class="title-prices">Calendario</h1>
+  <h2>Proximos turnos</h2>
+  <form action="/turnos/proximos" class="search-form" method="GET">
+    Desde: <input type="date" name="min_start_time" /> Hasta:
+    <input type="date" name="max_start_time" />
+    <button type="submit">Buscar</button>
+  </form>
 
-    <div class="calendar-container">
-        <div class="appointments-container">
-            <h2>Proximos turnos</h2>
-            <form action="/turnos/proximos" class="search-form" method="GET" >
-                Desde: <input type="date" name="min_start_time">
-                Hasta: <input type="date" name="max_start_time">
-                <button type="submit">Buscar</button>
-            </form>
-            <%if(appointments.length < 1){%>
-                <h3>No hay turnos para las fechas seleccionadas</h3>
-            <%}%>
-            <%for (const appointment of appointments) {%>               
+  <div class="calendar-container">
+    <div class="appointments-container">
+      <%if(appointments.length < 1){%>
+      <h3>No hay turnos para las fechas seleccionadas</h3>
+      <%}%> <%for (const appointment of appointments) {%>
 
-            <div class="appointment">
-                <h3>Fecha</h3>
-                <p class="date"><%=appointment.date%></p>
-                <h3>Hora</h3>
-                <p class="time"><%=appointment.time%></p>
-                <h3>Servicio</h3>
-                <p class="time"><%=appointment.name%></p>
-                <h3>Cliente</h3>
-                <p class="service"><%=appointment.invitee%></p>
-                <h3>Email</h3>
-                <p class="client"><%=appointment.email%></p>
-                <h3>Telefono</h3>
-                <p class="phone"><%=appointment.phone%></p>
-                <a target="_blank" href="https://wa.me/<%=appointment.phone%>" class="contact-button">Whastapp</a>
-                <br>
-                <br>
-            </div>
-            <%}%>
-        </div>
+      <div class="appointment">
+        <h3>Fecha</h3>
+        <p class="date"><%=appointment.date%></p>
+        <h3>Hora</h3>
+        <p class="time"><%=appointment.time%></p>
+        <h3>Servicio</h3>
+        <p class="time"><%=appointment.name%></p>
+        <h3>Cliente</h3>
+        <p class="service"><%=appointment.invitee%></p>
+        <h3>Email</h3>
+        <p class="client"><%=appointment.email%></p>
+        <h3>Telefono</h3>
+        <p class="phone"><%=appointment.phone%></p>
+        <a
+          target="_blank"
+          href="https://wa.me/<%=appointment.phone%>"
+          class="contact-button"
+          >Whastapp</a>
+          <button class="contact-button" id="open-form-btn" type="button">Agregar a sheets</button>
+        <br />
+        <br />
+      </div>
+      <%}%>
     </div>
+  </div>
 
+  <div id="save-appointment-container" class="save-appointment-container">
+    <div class="form-container">
+      <form action="/sheets/add" method="post" class="save-form">
+        <input type="text" name="name" placeholder="Nombre" />
+        <input type="text" name="lastName" placeholder="Apellido" />
+        <input type="text" name="service" placeholder="Servicio" />
+        <select name="consumption">
+          <option value="cerveza">Cerveza</option>
+          <option value="cafe">Cafe</option>
+          <option value="ninguno">Ninguno</option>
+        </select>
+        <input type="text" name="price" placeholder="Precio" />
+        <button class="save-form-btn" type="submit">Añadir</button>
+        <button class="save-form-btn" id="cancel-btn" type="button">Cancelar</button>
+      </form>
+    </div>
+  </div>
 
-    <%-include('./partials/footer.ejs')%>
-<body>
-    
-</body>
+  <%-include('./partials/footer.ejs')%>
+  <script src="/js/calendar.js"></script>
+  </body>
 </html>

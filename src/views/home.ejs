@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Página de prueba</h1>
+    <form action="/sheets/add" method="POST">
+        <input type="text" name="name" placeholder="Nombre">
+        <input type="text" name="lastName" placeholder="Apellido">
+        <input type="text" name="service" placeholder="Servicio">
+        <select name="consumption">
+            <option value="cerveza">Cerveza</option>
+            <option value="cafe">Cafe</option>
+            <option value="ninguno">Ninguno</option>
+        </select>
+        <input type="text" name="price" placeholder="Precio">
+        <button type="submit">Añadir</button>
+    </form>
+</body>
+</html>

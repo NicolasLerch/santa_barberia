@@ -8,6 +8,8 @@ const session = require('express-session');
 const PORT = require('./src/config').PORT;
 const sessionMiddleware = require('./src/middlewares/sessionUser');
 const authMiddleware = require('./src/middlewares/authMiddleware');
+const authRoutes = require('./src/routes/authRoutes');
+const sheetsRoutes = require('./src/routes/sheetsRoutes');
 
 
 
@@ -22,12 +24,15 @@ app.use(session({
 }));
 
 app.set('view engine', 'ejs')
-// app.set('views', 'src/views')
     .set('views', path.join(__dirname, 'src/views'))
 
 app.use('/',sessionMiddleware, indexRouter);
 app.use('/turnos',sessionMiddleware, authMiddleware, calendlyrouter);
 app.use('/users',sessionMiddleware, userRouter);
+
+// Uso de rutas
+app.use('/', authRoutes);
+app.use('/sheets', sheetsRoutes);
 
 
 app.listen(PORT, () => {
